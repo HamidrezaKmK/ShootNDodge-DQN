@@ -243,6 +243,7 @@ class ShootNDodgeEnv(gym.Env):
         self.clear_canvas()
         prv_score = self.calculate_current_score()
         prv_kill_count = self.kill_count
+        prv_hit_count = self.hit_count
 
         terminal = False
 
@@ -301,4 +302,4 @@ class ShootNDodgeEnv(gym.Env):
 
         self.draw_all()
         sub = -1000 if terminal else 0
-        return self.canvas, self.kill_count - prv_kill_count + sub + 0.1, terminal, "additional_info"
+        return self.canvas, (self.kill_count - prv_kill_count) * 100 + (self.hit_count - prv_hit_count) * 10 + sub + 0.1, terminal, "additional_info"
