@@ -63,12 +63,12 @@ class SpaceShip(Collidable):
     def move_right(self):
         if self.get_right_border() >= self.right_limit:
             return
-        self.offset += 3
+        self.offset += 6
 
     def move_left(self):
         if self.get_left_border() <= self.left_limit:
             return
-        self.offset -= 3
+        self.offset -= 6
 
     def get_tip(self):
         return [self.offset + 3 * self.d // 2, self.low_end - self.h // 5]
@@ -80,7 +80,7 @@ class BadBlock(Collidable):
         self.r = 10
         self.hp = 2
         self.colors = [(200, 200, 0), (200, 100, 0), (200, 0, 0)]
-        self.velocity = [random.choice([-2, 2]), 1]
+        self.velocity = [random.choice([-4, 4]), 2]
 
     def get_up_border(self):
         return self.center[1] + self.r
@@ -129,7 +129,7 @@ class Bullet(Collidable):
         return self.center[0] + self.r
 
     def move(self):
-        self.center[1] -= 2
+        self.center[1] -= 4
 
 
 def check_collide(A: Collidable, B: Collidable):
@@ -161,7 +161,7 @@ class ShootNDodgeEnv(gym.Env):
         self.space_ship.set_left_limit(moving_range[0])
         self.space_ship.set_right_limit(moving_range[1])
         self.bad_blocks = []
-        self.Lambda = 0.008
+        self.Lambda = 0.01
 
         self.time_left = np.random.exponential(scale=1 / self.Lambda, size=1)[0]
 
