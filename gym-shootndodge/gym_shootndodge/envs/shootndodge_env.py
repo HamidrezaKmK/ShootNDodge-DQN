@@ -113,7 +113,7 @@ class BadBlock(Collidable):
 class Bullet(Collidable):
     def __init__(self, center_x, center_y):
         self.center = [center_x, center_y]
-        self.r = 2
+        self.r = 4
         self.color = (255, 255, 255)
 
     def get_up_border(self):
@@ -241,7 +241,6 @@ class ShootNDodgeEnv(gym.Env):
 
     def step(self, target):
         self.clear_canvas()
-        prv_score = self.calculate_current_score()
         prv_kill_count = self.kill_count
         prv_hit_count = self.hit_count
 
@@ -283,6 +282,7 @@ class ShootNDodgeEnv(gym.Env):
                         self.kill_count += 1
                     else:
                         self.hit_count += 1
+                        print("HIT!")
                     collides = True
             if not collides:
                 new_bullets.append(bullet)
