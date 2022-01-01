@@ -258,7 +258,7 @@ class ShootNDodgeEnv(gym.Env):
 
         # HANDLE BLOCK CREATION
         self.time_left -= 1
-        if self.time_left <= 0:
+        if self.time_left <= 0 or len(self.bad_blocks) == 0:
             self.bad_blocks.append(BadBlock())
             self.time_left = self.time_left = np.random.exponential(scale=1 / self.Lambda, size=1)[0]
 
