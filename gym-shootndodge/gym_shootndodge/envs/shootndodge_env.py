@@ -161,7 +161,7 @@ class ShootNDodgeEnv(gym.Env):
         self.space_ship.set_left_limit(moving_range[0])
         self.space_ship.set_right_limit(moving_range[1])
         self.bad_blocks = []
-        self.Lambda = 0.01
+        self.Lambda = 0.012
 
         self.time_left = np.random.exponential(scale=1 / self.Lambda, size=1)[0]
 
