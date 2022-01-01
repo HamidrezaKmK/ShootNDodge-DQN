@@ -282,7 +282,6 @@ class ShootNDodgeEnv(gym.Env):
                         self.kill_count += 1
                     else:
                         self.hit_count += 1
-                        print("HIT!")
                     collides = True
             if not collides:
                 new_bullets.append(bullet)
