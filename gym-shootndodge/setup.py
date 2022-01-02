@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='gym_shootndodge',
-      version='1.0',
+      version='1.1',
       author='Hamidreza Kamkari',
       description='''
       A new atari game involving a shooter that can go sideways and shoot and multiple deadly astroid blocks comming at it!
