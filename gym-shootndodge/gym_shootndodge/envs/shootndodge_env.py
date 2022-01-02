@@ -301,4 +301,5 @@ class ShootNDodgeEnv(gym.Env):
 
         self.draw_all()
         sub = -50 if terminal else 0
-        return self.canvas, (self.kill_count - prv_kill_count) * 10 + (self.hit_count - prv_hit_count) * 5 + sub  + 1, terminal, "additional_info"
+        return self.canvas, (self.kill_count - prv_kill_count) * 10 + (
+                    self.hit_count - prv_hit_count) * 5 + sub + 1, terminal, "additional_info"
